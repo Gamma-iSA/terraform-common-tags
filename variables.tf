@@ -20,12 +20,12 @@ variable "product" {
 }
 
 variable "environment" {
-  description = "Environment for provisioning (dev|qa|stage|prod)."
-  type        = string
+  type = string
   validation {
-    condition     = var.environment == "dev" || var.environment == "prd" || var.environment == "hml"
-    error_message = "Environment name should be one of (dev|prd|hml)"
+    condition     = length(regex("^(prd|stg|hml|dev)", var.environment)) == 1
+    error_message = "Environment should contain prd or stg or hml or dev."
   }
+  default = "prd"
 }
 
 variable "cost_center" {

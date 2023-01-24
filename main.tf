@@ -8,12 +8,14 @@ locals {
     prd = "Production"
     dev = "Development"
     hml = "Homolog"
+    stg = "Staging"
   }
 
   env = {
     prd = "prod"
     dev = "dev"
-    hml = "test"
+    hml = "hml"
+    stg = "stg"
   }
 
   common_prefix = "${var.name}-${var.environment}"
